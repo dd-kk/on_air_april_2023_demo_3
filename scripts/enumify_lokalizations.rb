@@ -5,7 +5,7 @@ load 'camelize.rb'
 def oneTimeReplaceNSLS(text) 
     regexp_result = text.match(/NSLocalizedString\("(.+?)", comment: \"(.*?)\"\)/)
     if regexp_result
-        key = regexp_result.captures.first.delete(' ')
+        key = regexp_result.captures.first
         key_s = key.to_s
         if key_s.length > 0
             key_s = key_s.camelize
