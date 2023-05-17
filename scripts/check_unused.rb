@@ -24,7 +24,7 @@ def check_unused_localization_strings
 	}
 
 	if lokalized_strings.count > 0
-		puts "Localization strinfgs not used in any file: #{lokalized_strings}\n#{lokalized_strings.count} in total"
+		puts "Localization strings not used in any file: #{lokalized_strings}\n#{lokalized_strings.count} in total"
 	end
 end
 
