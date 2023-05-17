@@ -29,7 +29,7 @@ def replaceAllNSLS(text)
 end
 
 Dir.glob("../localization_demo/localization_demo/Classes/**/*.swift").each { |filename|
-	text = File.read(filename)
+    text = File.read(filename)
     output = replaceAllNSLS(text)
     if text != output 
         File.open(filename, "w") { |f| f.write(output) }

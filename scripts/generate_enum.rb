@@ -2,11 +2,10 @@
 
 load 'camelize.rb'
 
-keys = []
-File.open('../localization_demo/localization_demo/Localizations/en.lproj/Localizable.strings') { |filename| 
-	keys = File.foreach(filename).filter{ |s| !s.start_with?("/*") && s =~ /\".*\" = \".*\";/ }.map { |s| s.chomp(';').split(' = ').first[1...-1]  }
-}
-# puts keys
+en_translation = '../localization_demo/localization_demo/Localizations/en.lproj/Localizable.strings'
+keys = File.foreach(en_translation)
+		   .filter { |s| !s.start_with?("/*") && s =~ /\".*\" = \".*\";/ }
+		   .map { |s| s.chomp(';').split(' = ').first[1...-1]  }
 
 File.open('../localization_demo/localization_demo/Resources/Resources.swift', 'w') { |file| file.write('''
 //
@@ -27,7 +26,7 @@ file.write('''
 file.write('''
 
 	func localized() -> String {
-        return NSLocalizedString(self.rawValue, comment: "")
+		return NSLocalizedString(self.rawValue, comment: "")
     }
 }''')
 }

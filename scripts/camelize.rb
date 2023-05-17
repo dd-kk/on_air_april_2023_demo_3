@@ -16,6 +16,6 @@ class String
             end
     	end
     	s.delete_prefix!('_')
-		s[0].downcase + s[1..-1]
+    	s[0].downcase + s[1..-1]
 	end
 end
